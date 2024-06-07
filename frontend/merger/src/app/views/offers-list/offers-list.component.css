@@ -1,0 +1,63 @@
+.link{
+  text-decoration: none;
+  color: black;
+  background-color: black;
+}
+.offer-wrapper{
+  display: flex;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+  padding: 20px;
+  padding-top: 5px;
+  width: 500px;
+  border-radius: 10px;
+}
+.image{
+  display: block;
+}
+.offer{
+  display: block;
+  margin-left: 30px;
+}
+.logo{
+  margin-top: 30px;
+  max-height: 80px;
+  width: 80px;
+}
+.company{
+  color: #363A4B;
+}
+.tags{
+  margin-top: 10px;
+  display: flex;
+}
+.tag{
+  background-color: #DEDFDF;
+  border-radius: 15px;
+  padding: 5px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.title{
+  color: #0A1752;
+}
+.pagination{
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+}
+.page-item{
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #DEDFDF;
+}
+.active{
+  background-color: #DEDFDF;
+}
+

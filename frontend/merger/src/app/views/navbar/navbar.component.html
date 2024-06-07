@@ -1,0 +1,10 @@
+<nav (scroll)="onscroll()" [ngClass]="navfixed?'fixed':'notfixed'">
+  <div class="info">
+    <span id="info">Offers from:</span>
+    <img src="https://mainpage.gpcdn.pl/318531/public/images/header/logo.svg"/>
+    <img src="https://prowly-prod.s3.eu-west-1.amazonaws.com/uploads/press_rooms/company_logos/46602/ae9d25e0ad85e27e0ff7dd088f0cc820.png"/></div>
+  <div class="button-holder">
+    <span *ngIf="loading">Wait...</span>
+    <button class="reload" (click)="reload()"><b>Reload</b></button>
+  </div>
+</nav>

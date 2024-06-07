@@ -1,0 +1,27 @@
+<a *ngFor="let offer of activeOffers" href="{{offer.link}}" class="link">
+<div class="offer-wrapper">
+  <div class="image">
+    <img src="{{offer.image}}" class="logo" alt=""/>
+  </div>
+  <div class="offer">
+    <div>
+      <h2 class="title">{{offer.title}}</h2>
+    </div>
+    <div class="company">
+      <b>{{offer.company}}</b>
+    </div>
+    <div class="tags">
+      <div *ngFor="let tag of offer.tags" class="tag">{{tag}}</div>
+    </div>
+  </div>
+</div>
+</a>
+<div class="pagination">
+  <div
+    *ngFor="let page of pages"
+    [ngClass]="{'page-item':true, active: currentPage === page }"
+    (click)="change_page(page)"
+  >
+    {{page}}
+  </div>
+</div>

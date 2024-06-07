@@ -1,0 +1,10 @@
+fastapi==0.111.0
+itemadapter==0.9.0
+itemloaders==1.2.0
+psycopg2==2.9.9
+psycopg2_binary==2.9.9
+pydantic==2.7.3
+Scrapy==2.11.2
+scrapy_selenium==0.0.7
+selenium==4.21.0
+SQLAlchemy==2.0.30
