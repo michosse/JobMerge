@@ -5,10 +5,11 @@
 
 
 # useful for handling different item types with a single interface
+import os
 import psycopg2
 from scraper.scraper.items import JobOfferItem
 
-
+HOST = os.getenv('DATABASE_HOST','localhost')
 class SaveToPostpresPipeline(object):
     def __init__(self) -> None:
       self.create_connection()
@@ -16,7 +17,7 @@ class SaveToPostpresPipeline(object):
 
     def create_connection(self):
         self.connection = psycopg2.connect(
-            host = 'localhost',
+            host = HOST,
             user = 'postgres',
             password = 'admin',
             database = 'jobs',

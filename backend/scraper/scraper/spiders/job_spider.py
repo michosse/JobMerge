@@ -19,7 +19,10 @@ class JobsSpider(scrapy.Spider):
             "https://justjoin.it/trojmiasto/data/experience-level_junior"
         ]
         for url in start_urls:
-            yield SeleniumRequest(url=url, callback=self.parse, wait_time=10)
+            if "justjoin" in url:
+                yield SeleniumRequest(url=url, callback=self.parse, wait_time=5, wait_until=EC.presence_of_element_located((By.CSS_SELECTOR,"div.css-yicj0q")))
+            else:
+                yield SeleniumRequest(url=url, callback=self.parse, wait_time=5)
 
 
     

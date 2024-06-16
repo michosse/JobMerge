@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException
 from pydantic import BaseModel
 import models
+import os
 from typing import Annotated
 from database import engine, SessionLocal
 from sqlalchemy.orm import Session
@@ -10,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "http://localhost:4200"
+    'http://localhost:4200'
 ]
 
 app.add_middleware(
