@@ -20,7 +20,7 @@ class JobsSpider(scrapy.Spider):
         ]
         for url in start_urls:
             if "justjoin" in url:
-                yield SeleniumRequest(url=url, callback=self.parse, wait_time=5, wait_until=EC.presence_of_element_located((By.CSS_SELECTOR,"div.css-yicj0q")))
+                yield SeleniumRequest(url=url, callback=self.parse, wait_time=5, wait_until=EC.presence_of_element_located((By.CSS_SELECTOR,"div.css-1e6xvi3")))
             else:
                 yield SeleniumRequest(url=url, callback=self.parse, wait_time=5)
 
@@ -45,9 +45,9 @@ class JobsSpider(scrapy.Spider):
     def parse_jjit(self, response):
         for offer in response.css("div[data-test-id='virtuoso-item-list'] > div:not([class])"):
             l = OfferLoader(item=JobOfferItem(), selector=offer, response=response)
-            l.add_css("title", "h2.css-1gehlh0::text")
-            l.add_css("company", "div.css-aryx9u span::text")
-            l.add_css("image", "div.css-1offut2 img::attr(src)")
-            l.add_css("tags", "div.css-wp29cz div.css-1am4i4o::text")
-            l.add_css("link", "a.offer_list_offer_link.css-4lqp8g::attr(href)", MapCompose(lambda x: f"https://justjoin.it{x}"))
+            l.add_css("title", "h3.css-1gehlh0::text")
+            l.add_css("company", "div.css-1mx97sn span::text")
+            l.add_css("image", "div.css-5sbskc img::attr(src)")
+            l.add_css("tags", "div.css-vzlxkq div.css-1qruno6::text")
+            l.add_css("link", "a.offer_list_offer_link.css-3qyn8a::attr(href)", MapCompose(lambda x: f"https://justjoin.it{x}"))
             yield l.load_item()

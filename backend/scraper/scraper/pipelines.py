@@ -32,6 +32,7 @@ class SaveToPostpresPipeline(object):
                          tags varchar[],
                          PRIMARY KEY (title, company)
         )""")
+        self.cur.execute("""TRUNCATE TABLE offer;""")
 
     def process_item(self, item, spider):
        self.store_db(item)
