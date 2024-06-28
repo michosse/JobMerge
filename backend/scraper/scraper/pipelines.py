@@ -6,6 +6,7 @@
 
 # useful for handling different item types with a single interface
 import os
+import re
 import psycopg2
 from scraper.scraper.items import JobOfferItem
 
@@ -40,11 +41,12 @@ class SaveToPostpresPipeline(object):
     
     def store_db(self, item: JobOfferItem):
         try:
+          image = f"https{item.image.split('https')[-1]}"
           self.cur.execute(""" insert into offer (link, title, company, image, tags) values (%s, %s, %s, %s, %s) ON CONFLICT DO NOTHING""",(
                         item.link,
                         item.title,
                         item.company,
-                        item.image,
+                        image,
                         item.tags
                         )
                         )

@@ -14,7 +14,7 @@ def run_spider():
     process = CrawlerProcess(settings)
     process.crawl(JobsSpider)
     try:
-        process.start()
+        process.start(install_signal_handlers=False)
         return "Done"
     except Exception as e:
         return "Error"

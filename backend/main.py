@@ -50,4 +50,7 @@ def get_offers(db: db_dependency)->list[Offer]:
 @app.put("/api/reload")
 def reaload_db():
     response = run_spider()
-    return response
+    if response == 'Done':
+        return response
+    else:
+        raise HTTPException(status_code=500, detail=response)
